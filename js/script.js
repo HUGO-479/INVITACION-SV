@@ -1,13 +1,32 @@
-const btnNo = document.querySelector("#btn-random")
+document.addEventListener("DOMContentLoaded", function () {
 
-function moverAleatoriamente(btn) {
-    btn.style.position = "absolute";
-    btn.style.fontWeight = "bolder";
-    btn.style.top = Math.floor(Math.random() * 90 + 5) + "%"
-    btn.style.left = Math.floor(Math.random() * 90 + 5) + "%"
-}
+    const btnNo = document.querySelector("#btn-random");
 
-btnNo.addEventListener("mouseenter", function (e) {
-    moverAleatoriamente(e.target)
-})
+    if (!btnNo) return;
 
+    function moverAleatoriamente(btn) {
+        btn.style.position = "fixed";
+        btn.style.fontWeight = "bolder";
+
+        const maxX = window.innerWidth - btn.offsetWidth;
+        const maxY = window.innerHeight - btn.offsetHeight;
+
+        const randomX = Math.random() * maxX;
+        const randomY = Math.random() * maxY;
+
+        btn.style.left = randomX + "px";
+        btn.style.top = randomY + "px";
+    }
+
+    // Computadora
+    btnNo.addEventListener("mouseenter", function (e) {
+        moverAleatoriamente(e.target);
+    });
+
+    // Móviles
+    btnNo.addEventListener("touchstart", function (e) {
+        e.preventDefault();
+        moverAleatoriamente(e.target);
+    });
+
+});
