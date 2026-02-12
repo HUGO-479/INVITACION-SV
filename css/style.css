@@ -1,0 +1,205 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Fondo con imagen de lobos */
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../img/lobos.png'); /* Ajusta esta ruta según tu estructura */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    z-index: -1;
+    opacity: 0.7; /* Ajusta la opacidad según prefieras */
+}
+
+/* Si quieres un efecto de desenfoque en el fondo */
+.background::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* Oscurece un poco el fondo para mejor contraste */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    gap: 20px;
+    max-width: 500px;
+    margin: 20px;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    z-index: 1;
+    backdrop-filter: blur(5px); /* Efecto de desenfoque del fondo */
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.container h1 {
+    color: #000000; /* Color marrón similar a lobos */
+    font-size: 1.8rem;
+    text-shadow: 1px 1px 20px rgba(255, 255, 255, 0.8);
+    margin-bottom: 10px;
+}
+
+.container p {
+    color: #000000; /* Color marrón más oscuro */
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.container .tenor-gif-embed {
+    display: flex;
+    max-width: 200px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.container .btn {
+    display: flex;
+    gap: 25px;
+    margin-top: 10px;
+}
+
+.btn a {
+    text-decoration: none;
+    color: #fff;
+    background: linear-gradient(to bottom, #8B4513, #654321); /* Degradado marrón */
+    padding: 12px 30px;
+    border-radius: 50px;
+    box-shadow: 0.5rem 1rem 3rem rgba(0, 0, 0, 0.3);
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    min-width: 100px;
+    text-align: center;
+}
+
+.btn a:hover {
+    transform: translateY(-5px);
+    box-shadow: 0.8rem 1.5rem 4rem rgba(0, 0, 0, 0.4);
+    background: linear-gradient(to bottom, #A0522D, #8B4513);
+}
+
+.btn a:active {
+    transform: translateY(-2px);
+}
+
+/* Estilo específico para el botón SI */
+.btn a:first-child {
+    background: linear-gradient(to bottom, #D2691E, #8B4513);
+}
+
+.btn a:first-child:hover {
+    background: linear-gradient(to bottom, #E67E22, #D2691E);
+}
+
+/* Estilo específico para el botón NO */
+.btn a:last-child {
+    background: linear-gradient(to bottom, #696969, #4F4F4F);
+}
+
+.btn a:last-child:hover {
+    background: linear-gradient(to bottom, #808080, #696969);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .container {
+        max-width: 90%;
+        padding: 20px;
+    }
+    
+    .container h1 {
+        font-size: 1.5rem;
+    }
+    
+    .container p {
+        font-size: 1rem;
+    }
+    
+    .container .btn {
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+    }
+    
+    .btn a {
+        width: 100%;
+    }
+}
+
+@media (max-width: 400px) {
+    .container h1 {
+        font-size: 1.3rem;
+    }
+    
+    .container .tenor-gif-embed {
+        max-width: 150px;
+    }
+}
+
+/* Botón de WhatsApp */
+.whatsapp-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: #fff;
+    background: linear-gradient(to bottom, #25D366, #1EBE5D);
+    padding: 14px 28px;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    box-shadow: 0.5rem 1rem 2.5rem rgba(0, 0, 0, 0.35);
+    transition: all 0.3s ease;
+    border: 2px solid rgba(255, 255, 255, 0.25);
+}
+
+/* Hover */
+.whatsapp-btn:hover {
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0.8rem 1.5rem 3.5rem rgba(0, 0, 0, 0.45);
+    background: linear-gradient(to bottom, #2EE67A, #25D366);
+}
+
+/* Click */
+.whatsapp-btn:active {
+    transform: translateY(-2px) scale(1);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .whatsapp-btn {
+        width: 100%;
+        justify-content: center;
+        font-size: 1rem;
+        padding: 12px 20px;
+    }
+}
